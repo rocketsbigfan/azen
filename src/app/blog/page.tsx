@@ -130,7 +130,12 @@ const Button = () => {
     </span>
   </button>
 }
-export default function Blog() {
+
+
+
+export default async function Blog() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blog`)
+  const BlogList = await response.json()
   return (
     <>
       <main className='overflow-x-hidden bg-black h-screen'>
@@ -195,7 +200,7 @@ export default function Blog() {
               </FadeIn>
               <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
                 {
-                  BlogList.map((item, index) => (
+                  BlogList.map((item: any, index: number) => (
                     <FadeIn 
                       key={item.id}
                       transition={{
@@ -205,7 +210,7 @@ export default function Blog() {
                     >
                       <div className='flex flex-col group p-[6px] h-[342px] rounded-[20px] bg-[#181818] overflow-hidden'>
                         <div className="relative h-[210px] rounded-[20px] overflow-hidden">
-                          <Image src={item.img} alt="" className="w-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.1] transition duration-300" />
+                          <img src={item.thumbnail} alt="" className="w-full h-auto object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.1] transition duration-300" />
                         </div>
                         <div className="flex-1 flex flex-col justify-between p-[12px_14px_14px]">
                           <h4 title={item.title} className="text-white text-base leading-[normal] font-bold line-clamp-2">{item.title}</h4>
