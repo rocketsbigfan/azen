@@ -53,8 +53,13 @@ function Blogs ({data}: {data: Blog[]}) {
 }
 
 async function Bloglist() {
+  let blogs = []
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blog`);
-  const blogs = await response.json();
+  try {
+    blogs = await response.json();
+  } catch (err) {
+    console.error('error: ', err)
+  }
   // const blogs = await fetchBlogs()
   return (
     <Blogs data={blogs} />
