@@ -89,7 +89,7 @@ const useFakeAnimationEnd = (pathRef: RefObject<SVGPathElement>, pathLength: num
   }
 }
 
-const IconWrapper = forwardRef((props: { children: ReactNode, className?: string, delay?: number }, ref: ForwardedRef<HTMLDivElement>) => {
+const IconWrapper = forwardRef(function Icon(props: { children: ReactNode, className?: string, delay?: number }, ref: ForwardedRef<HTMLDivElement>) {
   const { children, className, delay = 0 } = props
 
   return (

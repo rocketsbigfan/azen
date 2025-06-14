@@ -47,7 +47,7 @@ const PrimeHost = () => {
           <div className='mt-4'>
             {
               data.map((item) => (
-                <div className='flex justify-start items-start gap-2 mt-1'>
+                <div key={item.id} className='flex justify-start items-start gap-2 mt-1'>
                   <div className='w-1 h-1 bg-[#ADABB2] rounded-full mt-3'></div>
                   <p className='text-base text-[#ADABB2] font-pingFangSCLight tracking-wider md:tracking-normal'>
                     {item.desc}

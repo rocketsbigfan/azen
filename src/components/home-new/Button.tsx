@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils'
 
-// eslint-disable-next-line react-refresh/only-export-components
 export enum ButtonType {
   'Google Play' = 'Google Play',
   'App Store' = 'App Store',
