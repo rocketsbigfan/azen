@@ -14,6 +14,7 @@ import bgM from '@/assets/home-new/hero/home-m.webp'
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Head from "next/head";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -104,7 +105,7 @@ export default function Hero({ onVideoLoaded, onVideoProgress, opacity = 1 }: { 
   }
 
   const handleFirstVideoPlay = () => {
-    const timeStamp = first.current!.duration * 1000 *.6
+    const timeStamp = first.current!.duration * 1000 * .6
     setTimeout(() => {
       showElement()
     }, timeStamp)
@@ -185,6 +186,15 @@ export default function Hero({ onVideoLoaded, onVideoProgress, opacity = 1 }: { 
   }, [pathname])
   return (
     <div className={cn("relative z-[3] w-full h-screen overflow-hidden bg-black")}>
+
+      <Head>
+        <link
+          rel="preload"
+          href='/video/home-new-1.mp4'
+          as="video"
+          type="video/mp4"
+        />
+      </Head>
       <video
         className={cn('max-md:hidden absolute z-[2] top-0 left-0 w-full h-full object-cover transition-all duration-300', {
           'opacity-0': firstEnded

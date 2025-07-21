@@ -134,13 +134,13 @@ const Button = () => {
 
 
 export default async function Blog() {
-  let BlogList = []
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blog`)
-    BlogList = await response.json()
-  } catch (err) {
-    console.error('fetch failed:', err)
-  }
+  // let BlogList = []
+  // try {
+  //   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blog`)
+  //   BlogList = await response.json()
+  // } catch (err) {
+  //   console.error('fetch failed:', err)
+  // }
   return (
     <>
       <main className='overflow-x-hidden bg-black h-screen'>
