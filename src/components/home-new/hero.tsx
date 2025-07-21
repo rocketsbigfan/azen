@@ -179,11 +179,9 @@ export default function Hero({ onVideoLoaded, onVideoProgress, opacity = 1 }: { 
       first.current.play().catch((e) => {
         console.log(NoPermission, e, JSON.stringify(e.message))
       })
-    } else {
-      console.log('⏳ 视频还未准备好，手动触发 load')
-      first.current.load()
-    }
+    } 
   }, [pathname])
+
   return (
     <div className={cn("relative z-[3] w-full h-screen overflow-hidden bg-black")}>
 
